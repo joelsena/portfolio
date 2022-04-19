@@ -7,6 +7,7 @@ import Document, {
     NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { Fragment } from 'react'
 
 export default class MyDocument extends Document {
     static async getInitialProps(
@@ -26,10 +27,10 @@ export default class MyDocument extends Document {
             return {
                 ...initialProps,
                 styles: [
-                    <>
+                    <Fragment key="1">
                         {initialProps.styles}
                         {sheet.getStyleElement()}
-                    </>
+                    </Fragment>
                 ]
             }
         } finally {
