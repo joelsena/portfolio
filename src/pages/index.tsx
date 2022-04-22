@@ -2,15 +2,9 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import Head from 'next/head'
 
-import {
-    Container,
-    Section,
-    Tags,
-    MidSection,
-    TagsContainer
-} from '../styles/home'
+import { Container, Section, MidSection } from '../styles/home'
 import JJImage from '../assets/logos/JJ.svg'
-// import Hero from '../assets/hero.png'
+import { Tags } from '../components/Tags'
 import Hero from '../assets/hero.svg'
 
 const Home: NextPage = () => {
@@ -24,14 +18,17 @@ const Home: NextPage = () => {
                 />
             </Head>
 
-            <TagsContainer>
-                <Tags>{"<html lang='pt-BR'>"}</Tags>
-                <Tags tabHier="second">{'<body>'}</Tags>
-            </TagsContainer>
+            <Tags
+                tags={[
+                    { content: "<html lang='pt-BR'>" },
+                    { content: '<body>', hierarchy: 'second' }
+                ]}
+                wrapPad
+            />
 
             <Section>
                 <MidSection>
-                    <Tags>{'<h1>'}</Tags>
+                    <Tags tags={[{ content: '<h1>' }]} />
                     <h1>Olá,</h1>
 
                     <h1>
@@ -40,11 +37,11 @@ const Home: NextPage = () => {
                     </h1>
 
                     <h1>Web Developer</h1>
-                    <Tags>{'</h1>'}</Tags>
+                    <Tags tags={[{ content: '</h1>' }]} />
 
-                    <Tags>{'<p>'}</Tags>
+                    <Tags tags={[{ content: '<p>' }]} />
                     <p>Front End Developer / Researcher</p>
-                    <Tags>{'</p>'}</Tags>
+                    <Tags tags={[{ content: '</p>' }]} />
                 </MidSection>
 
                 <MidSection>
@@ -57,10 +54,13 @@ const Home: NextPage = () => {
                 </MidSection>
             </Section>
 
-            <TagsContainer>
-                <Tags tabHier="second">{'<body>'}</Tags>
-                <Tags>{'<html>'}</Tags>
-            </TagsContainer>
+            <Tags
+                tags={[
+                    { content: '</body>', hierarchy: 'second' },
+                    { content: '<html>' }
+                ]}
+                wrapPad
+            />
         </Container>
     )
 }
