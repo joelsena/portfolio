@@ -2,10 +2,25 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import Head from 'next/head'
 
-import { Container, Section, MidSection } from '../styles/home'
-import JJImage from '../assets/logos/JJ.svg'
+import {
+    Container,
+    Section,
+    PortSection,
+    MidSection,
+    PreviewProject,
+    PreviewMidSection
+} from '../styles/home'
+import { CTAButton } from '../components/CTAButton'
 import { Tags } from '../components/Tags'
+
+import JJImage from '../assets/logos/JJ.svg'
 import Hero from '../assets/hero.svg'
+
+import RVHistory from '../assets/previews/rv_history_preview.png'
+import Expose from '../assets/previews/expose_preview.png'
+import Scoutnet from '../assets/previews/scoutnet_preview.png'
+import SmartStorage from '../assets/previews/smart_preview.png'
+import { YearBadge } from '../components/YearBadge'
 
 const Home: NextPage = () => {
     return (
@@ -27,7 +42,7 @@ const Home: NextPage = () => {
             />
 
             <Section>
-                <MidSection>
+                <MidSection style={{ marginTop: '3rem' }}>
                     <Tags tags={[{ content: '<h1>' }]} />
                     <h1>Olá,</h1>
 
@@ -40,19 +55,169 @@ const Home: NextPage = () => {
                     <Tags tags={[{ content: '</h1>' }]} />
 
                     <Tags tags={[{ content: '<p>' }]} />
-                    <p>Front End Developer / Researcher</p>
+                    <p style={{ paddingLeft: '1rem' }}>
+                        Front End Developer / Researcher
+                    </p>
                     <Tags tags={[{ content: '</p>' }]} />
+
+                    <CTAButton style={{ marginTop: '2rem' }}>
+                        Me Contate!
+                    </CTAButton>
                 </MidSection>
 
                 <MidSection>
-                    <Image
-                        src={Hero}
-                        alt="Minha Imagem"
-                        layout="responsive"
-                        // placeholder="blur"
-                    />
+                    <Image src={Hero} alt="Minha Imagem" layout="responsive" />
                 </MidSection>
             </Section>
+
+            <PortSection>
+                <MidSection>
+                    <Tags tags={[{ content: '<h1>' }]} />
+                    <h1>Meu Portfólio</h1>
+                    <Tags tags={[{ content: '</h1>' }]} />
+
+                    <Tags tags={[{ content: '<p>' }]} />
+                    <p style={{ paddingLeft: '1rem' }}>
+                        Melhores projetos feitos recentemente. Fiz a maioria dos
+                        design (com o Figma e Adobe XD) e também do
+                        desenvolvimento front end.
+                    </p>
+                    <Tags tags={[{ content: '</p>' }]} />
+                </MidSection>
+            </PortSection>
+
+            <Tags tags={[{ content: '<section>', hierarchy: 'third' }]} />
+
+            <PreviewProject>
+                <PreviewMidSection style={{ width: '60%' }}>
+                    <Image
+                        src={RVHistory}
+                        alt="rv-history-image"
+                        layout="responsive"
+                        placeholder="blur"
+                    />
+                </PreviewMidSection>
+                <PreviewMidSection>
+                    <div>
+                        <h2>VR History</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                    </div>
+
+                    <p>
+                        Sítios arqueológicos na palma de sua mão. #reactjs
+                        #nextjs
+                    </p>
+                    <small>Design feito por mim.</small>
+
+                    <CTAButton
+                        as="a"
+                        href="https://rv-history.vercel.app"
+                        target="_blank"
+                        style={{ marginTop: '2rem' }}
+                    >
+                        Visitar Site
+                    </CTAButton>
+                </PreviewMidSection>
+            </PreviewProject>
+
+            <PreviewProject>
+                <PreviewMidSection>
+                    <div>
+                        <h2>Expose Fidelidade</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                    </div>
+
+                    <p>
+                        Aplicativo de fidelidade para clientes da empresa e site
+                        administrativo. #reactjs #reactnative
+                    </p>
+                    <small>Design feito por mim.</small>
+
+                    <CTAButton
+                        as="a"
+                        href="https://play.google.com/store/apps/details?id=com.expose.exposefidelidade"
+                        target="_blank"
+                        style={{ marginTop: '2rem' }}
+                    >
+                        Visitar Site
+                    </CTAButton>
+                </PreviewMidSection>
+
+                <PreviewMidSection style={{ width: '60%' }}>
+                    <Image
+                        src={Expose}
+                        alt="expose-image"
+                        layout="responsive"
+                        placeholder="blur"
+                    />
+                </PreviewMidSection>
+            </PreviewProject>
+
+            <PreviewProject>
+                <PreviewMidSection>
+                    <Image
+                        src={RVHistory}
+                        alt="rv-history-image"
+                        layout="responsive"
+                        placeholder="blur"
+                    />
+                </PreviewMidSection>
+                <PreviewMidSection>
+                    <div>
+                        <h2>VR History</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                    </div>
+
+                    <p>
+                        Sítios arqueológicos na palma de sua mão. #reactjs
+                        #nextjs
+                    </p>
+                    <small>Design feito por mim.</small>
+
+                    <CTAButton
+                        as="a"
+                        href="https://rv-history.vercel.app"
+                        target="_blank"
+                        style={{ marginTop: '2rem' }}
+                    >
+                        Visitar Site
+                    </CTAButton>
+                </PreviewMidSection>
+            </PreviewProject>
+
+            <PreviewProject>
+                <PreviewMidSection>
+                    <Image
+                        src={RVHistory}
+                        alt="rv-history-image"
+                        layout="responsive"
+                        placeholder="blur"
+                    />
+                </PreviewMidSection>
+                <PreviewMidSection>
+                    <div>
+                        <h2>VR History</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                    </div>
+
+                    <p>
+                        Sítios arqueológicos na palma de sua mão. #reactjs
+                        #nextjs
+                    </p>
+                    <small>Design feito por mim.</small>
+
+                    <CTAButton
+                        as="a"
+                        href="https://rv-history.vercel.app"
+                        target="_blank"
+                        style={{ marginTop: '2rem' }}
+                    >
+                        Visitar Site
+                    </CTAButton>
+                </PreviewMidSection>
+            </PreviewProject>
+
+            <Tags tags={[{ content: '</section>', hierarchy: 'third' }]} />
 
             <Tags
                 tags={[
