@@ -8,12 +8,15 @@ import {
     PortSection,
     MidSection,
     PreviewProject,
-    PreviewMidSection
+    PreviewMidSection,
+    ArrowIndicator,
+    Copy
 } from '../styles/home'
 import { CTAButton } from '../components/CTAButton'
 import { Tags } from '../components/Tags'
 
 import JJImage from '../assets/logos/JJ.svg'
+import ArrowDown from '../assets/icons/arrow-down.svg'
 import Hero from '../assets/hero.svg'
 
 import RVHistory from '../assets/previews/rv_history_preview.png'
@@ -70,6 +73,10 @@ const Home: NextPage = () => {
                 </MidSection>
             </Section>
 
+            <ArrowIndicator>
+                <Image src={ArrowDown} alt="Abaixo" layout="responsive" />
+            </ArrowIndicator>
+
             <PortSection>
                 <MidSection>
                     <Tags tags={[{ content: '<h1>' }]} />
@@ -89,7 +96,7 @@ const Home: NextPage = () => {
             <Tags tags={[{ content: '<section>', hierarchy: 'third' }]} />
 
             <PreviewProject>
-                <PreviewMidSection style={{ width: '60%' }}>
+                <PreviewMidSection contentType="preview-image">
                     <Image
                         src={RVHistory}
                         alt="rv-history-image"
@@ -97,7 +104,7 @@ const Home: NextPage = () => {
                         placeholder="blur"
                     />
                 </PreviewMidSection>
-                <PreviewMidSection>
+                <PreviewMidSection contentType="text">
                     <div>
                         <h2>VR History</h2>
                         <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
@@ -121,7 +128,7 @@ const Home: NextPage = () => {
             </PreviewProject>
 
             <PreviewProject>
-                <PreviewMidSection>
+                <PreviewMidSection contentType="text-inverted">
                     <div>
                         <h2>Expose Fidelidade</h2>
                         <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
@@ -143,7 +150,7 @@ const Home: NextPage = () => {
                     </CTAButton>
                 </PreviewMidSection>
 
-                <PreviewMidSection style={{ width: '60%' }}>
+                <PreviewMidSection contentType="preview-image">
                     <Image
                         src={Expose}
                         alt="expose-image"
@@ -154,29 +161,30 @@ const Home: NextPage = () => {
             </PreviewProject>
 
             <PreviewProject>
-                <PreviewMidSection>
+                <PreviewMidSection contentType="preview-image">
                     <Image
-                        src={RVHistory}
+                        src={SmartStorage}
                         alt="rv-history-image"
                         layout="responsive"
                         placeholder="blur"
                     />
                 </PreviewMidSection>
-                <PreviewMidSection>
+                <PreviewMidSection contentType="text">
                     <div>
-                        <h2>VR History</h2>
-                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                        <h2>Smart Storage v1</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2020} />
                     </div>
 
                     <p>
-                        Sítios arqueológicos na palma de sua mão. #reactjs
-                        #nextjs
+                        Projeto que fiz durante meu ensino médio no intuito de
+                        organizar as dispensa das pessoas e ajudar a economizar.
+                        #reactjs
                     </p>
                     <small>Design feito por mim.</small>
 
                     <CTAButton
                         as="a"
-                        href="https://rv-history.vercel.app"
+                        href="https://smartstorage-deploy.herokuapp.com"
                         target="_blank"
                         style={{ marginTop: '2rem' }}
                     >
@@ -186,34 +194,36 @@ const Home: NextPage = () => {
             </PreviewProject>
 
             <PreviewProject>
-                <PreviewMidSection>
-                    <Image
-                        src={RVHistory}
-                        alt="rv-history-image"
-                        layout="responsive"
-                        placeholder="blur"
-                    />
-                </PreviewMidSection>
-                <PreviewMidSection>
+                <PreviewMidSection contentType="text-inverted">
                     <div>
-                        <h2>VR History</h2>
-                        <YearBadge style={{ marginLeft: '1rem' }} year={2021} />
+                        <h2>Scoutnet</h2>
+                        <YearBadge style={{ marginLeft: '1rem' }} year={2020} />
                     </div>
 
                     <p>
-                        Sítios arqueológicos na palma de sua mão. #reactjs
-                        #nextjs
+                        Startup feita por estudantes do ensino médio com o
+                        propósito de criar soluções para os problemas de
+                        organização e falta de marketing da comunidade escoteira
+                        do Brasil. #angular2+ #nodejs
                     </p>
                     <small>Design feito por mim.</small>
 
                     <CTAButton
                         as="a"
-                        href="https://rv-history.vercel.app"
+                        href="https://landpage-scoutnet-mvp.herokuapp.com"
                         target="_blank"
                         style={{ marginTop: '2rem' }}
                     >
                         Visitar Site
                     </CTAButton>
+                </PreviewMidSection>
+                <PreviewMidSection contentType="preview-image">
+                    <Image
+                        src={Scoutnet}
+                        alt="rv-history-image"
+                        layout="responsive"
+                        placeholder="blur"
+                    />
                 </PreviewMidSection>
             </PreviewProject>
 
@@ -226,6 +236,8 @@ const Home: NextPage = () => {
                 ]}
                 wrapPad
             />
+
+            <Copy>JoelSena@2022. All rights reserved.</Copy>
         </Container>
     )
 }

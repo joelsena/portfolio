@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
     width: 100%;
@@ -44,9 +44,42 @@ export const PreviewProject = styled.div`
     display: flex;
 `
 
-export const PreviewMidSection = styled.div`
+export const ArrowIndicator = styled.span`
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: 90%;
+    width: 1rem;
+
+    animation: move 1s infinite alternate;
+
+    @keyframes move {
+        from {
+            transform: translateY(-8px);
+        }
+        to {
+            transform: translateY(20px);
+        }
+    }
+`
+
+export const Copy = styled.p`
+    width: 100%;
+    text-align: center;
+`
+
+export const PreviewMidSection = styled.div<{
+    contentType?: 'text-inverted' | 'preview-image' | 'text'
+}>`
     /* width: 50%; */
     height: 100%;
+
+    & > div {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+    }
 
     small {
         color: var(--gray_600);
@@ -61,11 +94,30 @@ export const PreviewMidSection = styled.div`
         font-size: 1.5rem;
     }
 
-    & > div {
-        display: flex;
-        /* justify-content: center; */
-        align-items: center;
-    }
+    ${props =>
+        props.contentType === 'text' &&
+        css`
+            width: 40%;
+        `}
+
+    ${props =>
+        props.contentType === 'text-inverted' &&
+        css`
+            width: 40%;
+        `}
+
+    ${props =>
+        props.contentType === 'preview-image' &&
+        css`
+            width: 60%;
+        `}
+
+    ${props =>
+        (props.contentType === 'text-inverted' ||
+            props.contentType === 'text') &&
+        css`
+            padding: 3.5rem;
+        `}
 `
 
 export const MidSection = styled.div`
