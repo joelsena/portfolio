@@ -56,10 +56,14 @@ const Home: NextPage = () => {
                         },
                         'Web Developer'
                     ],
-                    texts: ['Front End Developer / Researcher'],
-                    buttonText: 'Me Contate!'
+                    texts: ['Front End Developer / Researcher']
                 }}
                 titleColor="white"
+                button={{
+                    as: 'a',
+                    text: 'Me Contate!',
+                    cHref: '#contact'
+                }}
             >
                 <Image
                     src={Hero}
@@ -73,7 +77,7 @@ const Home: NextPage = () => {
                 <Image src={ArrowDown} alt="Abaixo" layout="responsive" />
             </ArrowIndicator>
 
-            <PortSection id="porfolio">
+            <PortSection id="portfolio">
                 <MidSection>
                     <Tags tags={[{ content: '<h1>' }]} />
                     <h1>Meu Portfólio</h1>

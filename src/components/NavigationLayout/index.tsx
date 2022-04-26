@@ -50,24 +50,13 @@ const initialNavOptions: NavOptions[] = [
 export function NavigationLayout({ children }: PageProps) {
     const [navOptions, setNavOptions] = useState(initialNavOptions)
 
-    function handleOnClick(i: number) {
-        setNavOptions(prev => {
-            let changedOptions = Object.assign([], prev)
-
-            for (let c = 0; c < changedOptions.length; c++) {
-                changedOptions[i].isActive = c === i ? true : false
-                console.log(
-                    changedOptions[i].isActive,
-                    c === i ? true : false,
-                    c,
-                    i
-                )
-            }
-
-            console.log(changedOptions)
-
-            return changedOptions
-        })
+    function handleOnClick(chosenIndex: number) {
+        setNavOptions(prevOpts =>
+            prevOpts.map((opt, optIndex) => ({
+                ...opt,
+                isActive: optIndex === chosenIndex ? true : false
+            }))
+        )
     }
 
     return (

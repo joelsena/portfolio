@@ -1,5 +1,4 @@
 import { HTMLAttributes, ReactNode } from 'react'
-import Image from 'next/image'
 
 import { Container, MidSection } from './styles'
 import { Tags } from '../Tags'
@@ -14,7 +13,6 @@ type titleJSX = {
 type sectionData = {
     titles: (string | titleJSX)[]
     texts: string[]
-    buttonText?: string
 }
 
 interface PageProps extends HTMLAttributes<HTMLElement> {
@@ -22,19 +20,25 @@ interface PageProps extends HTMLAttributes<HTMLElement> {
     section: sectionData
     titleColor?: 'wine' | 'white'
     additionalContent?: (props: any) => JSX.Element
+    button?: {
+        as?: 'a' | 'button'
+        text: string
+        cHref?: string
+    }
 }
 
 export function Section({
     children,
     section,
     titleColor = 'wine',
-    additionalContent: AddContent
+    button,
+    additionalContent: AddContent,
+    ...rest
 }: PageProps) {
-    const { titles, texts, buttonText } = section
+    const { titles, texts } = section
 
     return (
-        <Container>
-            <section></section>
+        <Container {...rest}>
             <MidSection style={{ marginTop: '3rem' }} titleColor={titleColor}>
                 <Tags tags={[{ content: '<h1>' }]} />
                 {titles.map((title, i) => {
@@ -56,9 +60,13 @@ export function Section({
                 ))}
                 <Tags tags={[{ content: '</p>' }]} />
 
-                {buttonText && (
-                    <CTAButton style={{ marginTop: '2rem' }}>
-                        {buttonText}
+                {button && (
+                    <CTAButton
+                        as={button.as}
+                        href={button.cHref || ''}
+                        style={{ marginTop: '2rem' }}
+                    >
+                        {button.text}
                     </CTAButton>
                 )}
 
