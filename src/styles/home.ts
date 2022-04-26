@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: 100%;
 
     padding: 2rem 0;
+    padding-left: 7.25rem;
 `
 
 export const PortSection = styled.section`

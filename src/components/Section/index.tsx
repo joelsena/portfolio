@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 import Image from 'next/image'
 
 import { Container, MidSection } from './styles'
@@ -17,17 +17,24 @@ type sectionData = {
     buttonText?: string
 }
 
-interface PageProps {
+interface PageProps extends HTMLAttributes<HTMLElement> {
     children?: ReactNode
     section: sectionData
     titleColor?: 'wine' | 'white'
+    additionalContent?: (props: any) => JSX.Element
 }
 
-export function Section({ children, section, titleColor = 'wine' }: PageProps) {
+export function Section({
+    children,
+    section,
+    titleColor = 'wine',
+    additionalContent: AddContent
+}: PageProps) {
     const { titles, texts, buttonText } = section
 
     return (
         <Container>
+            <section></section>
             <MidSection style={{ marginTop: '3rem' }} titleColor={titleColor}>
                 <Tags tags={[{ content: '<h1>' }]} />
                 {titles.map((title, i) => {
@@ -54,6 +61,8 @@ export function Section({ children, section, titleColor = 'wine' }: PageProps) {
                         {buttonText}
                     </CTAButton>
                 )}
+
+                {AddContent && <AddContent />}
             </MidSection>
 
             {children && <MidSection>{children}</MidSection>}

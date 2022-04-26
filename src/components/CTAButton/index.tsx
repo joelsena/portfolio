@@ -14,6 +14,10 @@ export function CTAButton({
     ...rest
 }: ButtonProps & AnchorProps) {
     if (as !== 'button')
-        return <ContainerAnchor {...rest}>{children}</ContainerAnchor>
+        return (
+            <ContainerAnchor {...rest} rel="noreferrer">
+                {children}
+            </ContainerAnchor>
+        )
     return <Container {...rest}>{children}</Container>
 }

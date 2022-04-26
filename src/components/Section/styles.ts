@@ -10,7 +10,7 @@ export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
     width: 50%;
 
     & > p {
-        padding-left: 1rem;
+        padding: 0 1rem;
 
         + p {
             margin-top: 1rem;

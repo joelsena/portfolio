@@ -21,6 +21,8 @@ export const MidSection = styled.div<{
     small {
         color: var(--gray_600);
         font-family: Arial, sans-serif;
+
+        display: block;
     }
 
     & > p {
