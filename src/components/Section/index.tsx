@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react'
 
-import { Container, MidSection } from './styles'
+import { Container, MidSection, ButtonGroup } from './styles'
 import { Tags } from '../Tags'
 import { CTAButton } from '../CTAButton'
 
@@ -20,18 +20,19 @@ interface PageProps extends HTMLAttributes<HTMLElement> {
     section: sectionData
     titleColor?: 'wine' | 'white'
     additionalContent?: (props: any) => JSX.Element
-    button?: {
+    buttons?: {
         as?: 'a' | 'button'
         text: string
         cHref?: string
-    }
+        styleType?: 'filled' | 'empty'
+    }[]
 }
 
 export function Section({
     children,
     section,
     titleColor = 'wine',
-    button,
+    buttons = [],
     additionalContent: AddContent,
     ...rest
 }: PageProps) {
@@ -60,14 +61,21 @@ export function Section({
                 ))}
                 <Tags tags={[{ content: '</p>' }]} />
 
-                {button && (
-                    <CTAButton
-                        as={button.as}
-                        href={button.cHref || ''}
-                        style={{ marginTop: '2rem' }}
-                    >
-                        {button.text}
-                    </CTAButton>
+                {buttons.length !== 0 && (
+                    <ButtonGroup>
+                        {buttons.map((button, i) => (
+                            <CTAButton
+                                key={i}
+                                as={button.as}
+                                target="_blank"
+                                href={button.cHref || ''}
+                                style={{ marginTop: '2rem' }}
+                                styleType={button.styleType}
+                            >
+                                {button.text}
+                            </CTAButton>
+                        ))}
+                    </ButtonGroup>
                 )}
 
                 {AddContent && <AddContent />}

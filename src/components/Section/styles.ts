@@ -22,3 +22,16 @@ export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
             props.titleColor === 'white' ? `white` : `var(--wine_500)`};
     }
 `
+
+export const ButtonGroup = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 196px);
+    grid-gap: 1rem;
+
+    /* grid-template-columns: repeat(auto-fit, minmax(224px, 1fr)); */
+
+    /* display: flex;
+    & > button + button {
+        margin-left: 1rem;
+    } */
+`

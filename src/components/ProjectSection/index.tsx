@@ -48,8 +48,8 @@ export function ProjectSection({
 
                     <CTAButton
                         as="a"
-                        href={accessLink}
                         target="_blank"
+                        href={accessLink}
                         style={{ marginTop: '2rem' }}
                     >
                         Visitar Site

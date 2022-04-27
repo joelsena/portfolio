@@ -13,6 +13,7 @@ import JSLogo from '../../assets/logos/logo.svg'
 import Github from '../../assets/icons/github.svg'
 import Instagram from '../../assets/icons/instagram.svg'
 import Linkedin from '../../assets/icons/linkedin-rect.svg'
+import Link from 'next/link'
 
 interface PageProps {
     children: ReactNode
@@ -62,7 +63,11 @@ export function NavigationLayout({ children }: PageProps) {
     return (
         <Container>
             <Sidebar>
-                <Image src={JSLogo} alt="JS" width="100%" />
+                <Link href="/">
+                    <a>
+                        <Image src={JSLogo} alt="JS" width="100%" />
+                    </a>
+                </Link>
 
                 <MenuNavigation>
                     <ul>

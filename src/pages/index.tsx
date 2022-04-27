@@ -59,11 +59,20 @@ const Home: NextPage = () => {
                     texts: ['Front End Developer / Researcher']
                 }}
                 titleColor="white"
-                button={{
-                    as: 'a',
-                    text: 'Me Contate!',
-                    cHref: '#contact'
-                }}
+                buttons={[
+                    {
+                        as: 'a',
+                        text: 'Me Contate!',
+                        cHref: '#contact'
+                    },
+                    {
+                        as: 'a',
+                        text: 'Baixar CV',
+                        styleType: 'filled',
+                        // TODO: Colocar no .env?
+                        cHref: 'https://drive.google.com/file/d/1tMbfrymIE8y2PW1RS47mbKBgEkvGNHPi/view?usp=sharing'
+                    }
+                ]}
             >
                 <Image
                     src={Hero}

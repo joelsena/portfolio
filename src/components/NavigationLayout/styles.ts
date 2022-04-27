@@ -33,9 +33,10 @@ export const NavigationList = styled.li<{ isActive: boolean }>`
         display: block;
         width: 100%;
         padding: 1rem;
-        color: var(--gray_600);
+        color: ${props => (!props.isActive ? 'var(--gray_600)' : 'white')};
 
         font-family: 'Arial', sans-serif;
+        transition: 0.2s;
     }
 
     &::after {

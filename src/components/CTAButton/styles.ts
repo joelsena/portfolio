@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
 
+type buttonProps = {
+    styleType?: 'filled' | 'empty'
+}
+
 const buttonClickAnimation = css`
     :active {
         transform: scale(0.9, 0.9);
@@ -67,15 +71,29 @@ const ButtonStyle = css`
     }
 `
 
-export const Container = styled.button`
+export const Container = styled.button<buttonProps>`
     ${ButtonStyle}
 
     ${buttonClickAnimation}
+
+    ${props =>
+        props.styleType === 'filled' &&
+        css`
+            background: var(--wine_500) !important;
+            color: var(--black_900) !important;
+        `}
 `
 
-export const ContainerAnchor = styled.a`
+export const ContainerAnchor = styled.a<buttonProps>`
     ${ButtonStyle}
 
     ${buttonClickAnimation}
     width: min(196px, 100%);
+
+    ${props =>
+        props.styleType === 'filled' &&
+        css`
+            background: var(--wine_500) !important;
+            color: var(--black_900) !important;
+        `}
 `
