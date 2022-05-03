@@ -67,10 +67,14 @@ export function Section({
                             <CTAButton
                                 key={i}
                                 as={button.as}
-                                target="_blank"
                                 href={button.cHref || ''}
                                 style={{ marginTop: '2rem' }}
                                 styleType={button.styleType}
+                                target={
+                                    button.cHref.startsWith('#')
+                                        ? '_self'
+                                        : '_blank'
+                                }
                             >
                                 {button.text}
                             </CTAButton>

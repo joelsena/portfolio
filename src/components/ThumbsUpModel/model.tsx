@@ -29,7 +29,7 @@ export function ThumbsUpModel({ ...props }: JSX.IntrinsicElements['group']) {
         const t = state.clock.getElapsedTime()
 
         group.current.position.y = Math.sin(t) * 0.25 - 2.5
-        group.current.rotation.x = Math.sin(t) * 0.15 - 0.05
+        group.current.rotation.x = Math.sin(t) * 0.15 - 0.025
     })
 
     return (
