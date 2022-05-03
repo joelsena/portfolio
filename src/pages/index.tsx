@@ -13,6 +13,9 @@ import { Tags } from '../components/Tags'
 import { ProjectSection } from '../components/ProjectSection'
 import { Section } from '../components/Section'
 import { Skills } from '../components/Skills'
+import { ContactForm } from '../components/ContactForm'
+import { Earth } from '../components/EarthModel'
+import { ThumbsUp } from '../components/ThumbsUpModel'
 
 import JJImage from '../assets/logos/JJ.svg'
 import ArrowDown from '../assets/icons/arrow-down.svg'
@@ -22,7 +25,6 @@ import RVHistory from '../assets/previews/rv_history_preview.png'
 import Expose from '../assets/previews/expose_preview.png'
 import Scoutnet from '../assets/previews/scoutnet_preview.png'
 import SmartStorage from '../assets/previews/smart_preview.png'
-import { ContactForm } from '../components/ContactForm'
 
 const Home: NextPage = () => {
     return (
@@ -175,7 +177,7 @@ const Home: NextPage = () => {
                     ]
                 }}
             >
-                <h1>Globo</h1>
+                <ThumbsUp />
             </Section>
 
             <Section
@@ -202,7 +204,7 @@ const Home: NextPage = () => {
                 }}
                 additionalContent={ContactForm}
             >
-                <h1>Formulário</h1>
+                <Earth />
             </Section>
 
             <Tags
