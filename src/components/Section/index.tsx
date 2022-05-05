@@ -1,8 +1,9 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import { HTMLAttributes, ReactNode, useEffect, useState } from 'react'
 
 import { Container, MidSection, ButtonGroup } from './styles'
-import { Tags } from '../Tags'
+import { useDataContext } from '../../context'
 import { CTAButton } from '../CTAButton'
+import { Tags } from '../Tags'
 
 type titleJSX = {
     pre: string
@@ -37,10 +38,22 @@ export function Section({
     ...rest
 }: PageProps) {
     const { titles, texts } = section
+    const [showMidSection, setShowMidSection] = useState(true)
+    const { windowSize, breakpoints } = useDataContext()
+
+    useEffect(() => {
+        setShowMidSection(windowSize <= breakpoints.lg ? false : true)
+    }, [windowSize, breakpoints])
 
     return (
         <Container {...rest}>
-            <MidSection style={{ marginTop: '3rem' }} titleColor={titleColor}>
+            <MidSection
+                style={{
+                    marginTop: '3rem',
+                    width: showMidSection ? '50%' : '100%'
+                }}
+                titleColor={titleColor}
+            >
                 <Tags tags={[{ content: '<h1>' }]} />
                 {titles.map((title, i) => {
                     if (title['content'])
@@ -85,7 +98,7 @@ export function Section({
                 {AddContent && <AddContent />}
             </MidSection>
 
-            {children && <MidSection>{children}</MidSection>}
+            {children && showMidSection && <MidSection>{children}</MidSection>}
         </Container>
     )
 }

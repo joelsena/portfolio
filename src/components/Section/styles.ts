@@ -4,6 +4,7 @@ export const Container = styled.section`
     padding: 2rem 3rem;
 
     display: flex;
+    position: relative;
 `
 
 export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`

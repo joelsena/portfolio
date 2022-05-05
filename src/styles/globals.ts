@@ -20,16 +20,19 @@ export default createGlobalStyle`
         --green_600: #13AB1E;
     }
 
+    html {
+        font: 400 16px 'Arial', sans-serif;
+    }
+
     html,
     body,
     #root {
-        font-family: 'Arial', sans-serif;
+
         text-rendering: optimizelegibility;
         -webkit-font-smoothing: antialiased;
         scroll-behavior: smooth;
     }
 
-    body,
     input,
     textarea,
     button {
@@ -51,7 +54,6 @@ export default createGlobalStyle`
 
     p {
         line-height: 150%;
-        /* font-size: 1rem; */
 
         color: var(--gray_400);
     }
@@ -88,13 +90,13 @@ export default createGlobalStyle`
 
     @media (max-width: 1080px) {
         html {
-            font-size: 93.75; // 15px
+            font-size: 93.75%; // 15px
         }
     }
 
     @media (max-width: 720px) {
         html {
-            font-size: 87.5; // 14px
+            font-size: 87.5%; // 14px
         }
     }
 `

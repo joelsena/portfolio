@@ -9,22 +9,19 @@ import {
     Copy,
     MidSection
 } from '../styles/home'
-import { Tags } from '../components/Tags'
 import { ProjectSection } from '../components/ProjectSection'
+import { ContactForm } from '../components/ContactForm'
+import { ThumbsUp } from '../components/ThumbsUpModel'
+import { projects } from '../shared/projects_data'
+import { Earth } from '../components/EarthModel'
 import { Section } from '../components/Section'
 import { Skills } from '../components/Skills'
-import { ContactForm } from '../components/ContactForm'
-import { Earth } from '../components/EarthModel'
-import { ThumbsUp } from '../components/ThumbsUpModel'
+import { Tags } from '../components/Tags'
+import { useDataContext } from '../context/'
 
-import JJImage from '../assets/logos/JJ.svg'
 import ArrowDown from '../assets/icons/arrow-down.svg'
+import JJImage from '../assets/logos/JJ.svg'
 import Hero from '../assets/hero.svg'
-
-import RVHistory from '../assets/previews/rv_history_preview.png'
-import Expose from '../assets/previews/expose_preview.png'
-import Scoutnet from '../assets/previews/scoutnet_preview.png'
-import SmartStorage from '../assets/previews/smart_preview.png'
 
 const Home: NextPage = () => {
     return (
@@ -82,11 +79,10 @@ const Home: NextPage = () => {
                     priority
                     layout="responsive"
                 />
+                <ArrowIndicator>
+                    <Image src={ArrowDown} alt="Abaixo" layout="responsive" />
+                </ArrowIndicator>
             </Section>
-
-            <ArrowIndicator>
-                <Image src={ArrowDown} alt="Abaixo" layout="responsive" />
-            </ArrowIndicator>
 
             <PortSection id="portfolio">
                 <MidSection>
@@ -107,52 +103,19 @@ const Home: NextPage = () => {
 
             <Tags tags={[{ content: '<section>', hierarchy: 'third' }]} />
 
-            <ProjectSection
-                data={{
-                    description:
-                        'Sítios arqueológicos na palma de sua mão. #reactjs #nextjs',
-                    accessLink: 'https://rv-history.vercel.app',
-                    title: 'VR History',
-                    image: RVHistory,
-                    year: 2021
-                }}
-            />
-
-            <ProjectSection
-                data={{
-                    description:
-                        'Aplicativo de fidelidade para clientes da empresa e site administrativo. #reactjs #reactnative',
-                    accessLink:
-                        'https://play.google.com/store/apps/details?id=com.expose.exposefidelidade',
-                    title: 'Expose Fidelidade',
-                    image: Expose,
-                    year: 2021
-                }}
-                inverted
-            />
-
-            <ProjectSection
-                data={{
-                    description:
-                        'Projeto que fiz durante meu ensino médio no intuito de organizar as dispensa das pessoas e ajudar a economizar. #reactjs',
-                    accessLink: 'https://smartstorage-deploy.herokuapp.com',
-                    title: 'Smart Storage v1',
-                    image: SmartStorage,
-                    year: 2020
-                }}
-            />
-
-            <ProjectSection
-                data={{
-                    description:
-                        'Startup feita por estudantes do ensino médio com o propósito de criar soluções para os problemas de organização e falta de marketing da comunidade escoteira do Brasil. #angular2+ #nodejs',
-                    accessLink: 'https://landpage-scoutnet-mvp.herokuapp.com',
-                    title: 'Scoutnet',
-                    image: Scoutnet,
-                    year: 2020
-                }}
-                inverted
-            />
+            {projects.map(pro => (
+                <ProjectSection
+                    key={pro.title}
+                    data={{
+                        description: pro.description,
+                        accessLink: pro.accessLink,
+                        title: pro.title,
+                        image: pro.image,
+                        year: pro.year
+                    }}
+                    inverted={pro.inverted}
+                />
+            ))}
 
             <Tags tags={[{ content: '</section>', hierarchy: 'third' }]} />
 

@@ -2,8 +2,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import GlobalStyles from '../styles/globals'
-import '../styles/globals.ts'
 import { NavigationLayout } from '../components/NavigationLayout'
+import { DataProvider } from '../context'
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Head>
 
             <GlobalStyles />
-            <Component {...pageProps} />
+            <DataProvider>
+                <Component {...pageProps} />
+            </DataProvider>
         </NavigationLayout>
     )
 }
