@@ -81,7 +81,7 @@ export function Section({
                                 key={i}
                                 as={button.as}
                                 href={button.cHref || ''}
-                                style={{ marginTop: '2rem' }}
+                                style={{ marginTop: '1.5rem' }}
                                 styleType={button.styleType}
                                 target={
                                     button.cHref.startsWith('#')

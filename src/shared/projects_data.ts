@@ -3,13 +3,18 @@ import Expose from '../assets/previews/expose_preview.png'
 import Scoutnet from '../assets/previews/scoutnet_preview.png'
 import SmartStorage from '../assets/previews/smart_preview.png'
 
+import RVHistoryNormal from '../assets/previews/rv_history_normal.png'
+import ExposeNormal from '../assets/previews/expose_normal.png'
+import ScoutnetNormal from '../assets/previews/scoutnet_normal.png'
+import SmartStorageNormal from '../assets/previews/smart_storage_normal.png'
+
 export const projects = [
     {
         description:
             'Sítios arqueológicos na palma de sua mão. #reactjs #nextjs',
         accessLink: 'https://rv-history.vercel.app',
         title: 'VR History',
-        image: RVHistory,
+        image: { preview: RVHistory, normal: RVHistoryNormal },
         year: 2021,
         inverted: false
     },
@@ -19,7 +24,7 @@ export const projects = [
         accessLink:
             'https://play.google.com/store/apps/details?id=com.expose.exposefidelidade',
         title: 'Expose Fidelidade',
-        image: Expose,
+        image: { preview: Expose, normal: ExposeNormal },
         year: 2021,
         inverted: true
     },
@@ -28,16 +33,16 @@ export const projects = [
             'Projeto que fiz durante meu ensino médio no intuito de organizar as dispensa das pessoas e ajudar a economizar. #reactjs',
         accessLink: 'https://smartstorage-deploy.herokuapp.com',
         title: 'Smart Storage v1',
-        image: SmartStorage,
+        image: { preview: SmartStorage, normal: SmartStorageNormal },
         year: 2020,
         inverted: false
     },
     {
         description:
-            'Startup feita por estudantes do ensino médio com o propósito de criar soluções para os problemas de organização e falta de marketing da comunidade escoteira do Brasil. A startup recebeu 1 ano de mentoria da google #angular2+ #nodejs',
+            'Startup com o propósito de criar soluções para os problemas de organização e falta de marketing da comunidade escoteira do Brasil. #angular2+ #nodejs',
         accessLink: 'https://landpage-scoutnet-mvp.herokuapp.com',
         title: 'Scoutnet',
-        image: Scoutnet,
+        image: { preview: Scoutnet, normal: ScoutnetNormal },
         year: 2020,
         inverted: true
     }

@@ -5,6 +5,10 @@ export const Container = styled.div`
 
     padding: 2rem 0;
     padding-left: 7.25rem;
+
+    @media (max-width: 920px) {
+        padding-left: 0;
+    }
 `
 
 export const PortSection = styled.section`

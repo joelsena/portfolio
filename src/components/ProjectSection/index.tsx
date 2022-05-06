@@ -4,9 +4,13 @@ import Image, { StaticImageData } from 'next/image'
 import { Container, MidSection } from './styles'
 import { CTAButton } from '../CTAButton'
 import { YearBadge } from '../YearBadge'
+import { useDataContext } from '../../context'
 
 type previewData = {
-    image: StaticImageData
+    image: {
+        preview: StaticImageData
+        normal: StaticImageData
+    }
     title: string
     year: number
     description: string
@@ -25,6 +29,7 @@ export function ProjectSection({
     data,
     inverted = false
 }: PageProps) {
+    const { windowSize } = useDataContext()
     const {
         image,
         title,
@@ -50,7 +55,7 @@ export function ProjectSection({
                         as="a"
                         target="_blank"
                         href={accessLink}
-                        style={{ marginTop: '2rem' }}
+                        style={{ marginTop: '1.5rem' }}
                     >
                         Visitar Site
                     </CTAButton>
@@ -58,10 +63,12 @@ export function ProjectSection({
 
                 <MidSection contentType="preview-image">
                     <Image
-                        src={image}
+                        src={image.preview}
                         alt={title}
-                        layout="responsive"
+                        layout={windowSize <= 920 ? 'fill' : 'responsive'}
+                        objectFit={windowSize <= 920 ? 'cover' : 'initial'}
                         placeholder="blur"
+                        quality={100}
                     />
                 </MidSection>
             </Container>
@@ -72,10 +79,12 @@ export function ProjectSection({
         <Container>
             <MidSection contentType="preview-image">
                 <Image
-                    src={image}
+                    src={image.preview}
                     alt={title}
-                    layout="responsive"
+                    layout={windowSize <= 920 ? 'fill' : 'responsive'}
+                    objectFit={windowSize <= 920 ? 'cover' : 'initial'}
                     placeholder="blur"
+                    quality={100}
                 />
             </MidSection>
             <MidSection contentType="text">
@@ -91,7 +100,7 @@ export function ProjectSection({
                     as="a"
                     href={accessLink}
                     target="_blank"
-                    style={{ marginTop: '2rem' }}
+                    style={{ marginTop: '1.5rem' }}
                 >
                     Visitar Site
                 </CTAButton>
