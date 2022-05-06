@@ -69,12 +69,7 @@ export function Sidebar() {
     return (
         <>
             <OpenButton
-                onClick={() =>
-                    setShowSidebar(prev => {
-                        console.log('Clique', !prev)
-                        return !prev
-                    })
-                }
+                onClick={() => setShowSidebar(prev => !prev)}
                 isSidebarOpen={showSidebar}
             >
                 <div>

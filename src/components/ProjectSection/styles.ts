@@ -10,6 +10,10 @@ export const Container = styled.div`
         padding: 1rem 2rem;
         /* height: 10rem; */
     }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
 `
 
 export const MidSection = styled.div<{
@@ -51,8 +55,11 @@ export const MidSection = styled.div<{
             }
 
             @media (max-width: 920px) {
-                width: 70%;
+                width: 60%;
                 padding: 1rem 1.5rem;
+            }
+            @media (max-width: 500px) {
+                padding: 1rem 0;
             }
         `}
 
@@ -62,7 +69,7 @@ export const MidSection = styled.div<{
             width: 60%;
 
             @media (max-width: 920px) {
-                width: 30%;
+                width: 40%;
                 > span {
                     /* border-radius: 1rem 0 0 1rem; */
                     border-radius: 1rem;
@@ -74,5 +81,14 @@ export const MidSection = styled.div<{
         & > p {
             margin: 0.5rem 0;
         }
+    }
+
+    @media (max-width: 500px) {
+        width: 100%;
+        ${props =>
+            props.contentType === 'preview-image' &&
+            css`
+                height: 8rem;
+            `}
     }
 `

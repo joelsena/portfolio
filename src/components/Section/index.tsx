@@ -75,13 +75,12 @@ export function Section({
                 <Tags tags={[{ content: '</p>' }]} />
 
                 {buttons.length !== 0 && (
-                    <ButtonGroup>
+                    <ButtonGroup style={{ marginTop: '1.5rem' }}>
                         {buttons.map((button, i) => (
                             <CTAButton
                                 key={i}
                                 as={button.as}
                                 href={button.cHref || ''}
-                                style={{ marginTop: '1.5rem' }}
                                 styleType={button.styleType}
                                 target={
                                     button.cHref.startsWith('#')

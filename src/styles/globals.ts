@@ -78,6 +78,7 @@ export default createGlobalStyle`
 
     h1 {
         font-size: 5rem;
+        word-wrap: break-word;
     }
 
     a {
@@ -97,6 +98,10 @@ export default createGlobalStyle`
     @media (max-width: 720px) {
         html {
             font-size: 87.5%; // 14px
+
+            h1 {
+                font-size: 4rem; // 12px
+            }
         }
     }
 `

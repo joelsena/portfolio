@@ -15,8 +15,8 @@ const ButtonStyle = css`
     justify-content: center;
     align-items: center;
 
-    /* width: min(196px, 100%); */
-    min-width: 196px;
+    width: min(196px, 100%);
+    /* min-width: 196px; */
     padding: 1rem 2rem;
 
     border: 2px solid var(--wine_500);
@@ -68,6 +68,10 @@ const ButtonStyle = css`
         }
 
         color: var(--black_800);
+    }
+
+    @media (max-width: 500px) {
+        padding: 1rem;
     }
 `
 

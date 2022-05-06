@@ -15,6 +15,7 @@ export const PortSection = styled.section`
     padding: 2rem 3rem 0;
 
     display: flex;
+    flex-direction: column;
 
     h1 {
         color: var(--wine_500);
@@ -34,6 +35,15 @@ export const PortSection = styled.section`
         position: absolute;
         bottom: -40px;
         right: 0;
+
+        @media (max-width: 500px) {
+            font-size: 5rem;
+            /* right: -1rem; */
+        }
+    }
+
+    @media (max-width: 500px) {
+        padding: 2rem;
     }
 `
 

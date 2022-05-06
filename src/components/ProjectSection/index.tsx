@@ -5,6 +5,7 @@ import { Container, MidSection } from './styles'
 import { CTAButton } from '../CTAButton'
 import { YearBadge } from '../YearBadge'
 import { useDataContext } from '../../context'
+import { ImageUtils } from 'three'
 
 type previewData = {
     image: {
@@ -63,7 +64,7 @@ export function ProjectSection({
 
                 <MidSection contentType="preview-image">
                     <Image
-                        src={image.preview}
+                        src={windowSize <= 500 ? image.normal : image.preview}
                         alt={title}
                         layout={windowSize <= 920 ? 'fill' : 'responsive'}
                         objectFit={windowSize <= 920 ? 'cover' : 'initial'}
@@ -79,7 +80,7 @@ export function ProjectSection({
         <Container>
             <MidSection contentType="preview-image">
                 <Image
-                    src={image.preview}
+                    src={windowSize <= 500 ? image.normal : image.preview}
                     alt={title}
                     layout={windowSize <= 920 ? 'fill' : 'responsive'}
                     objectFit={windowSize <= 920 ? 'cover' : 'initial'}

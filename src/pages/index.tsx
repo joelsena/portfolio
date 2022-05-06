@@ -24,6 +24,8 @@ import JJImage from '../assets/logos/JJ.svg'
 import Hero from '../assets/hero.svg'
 
 const Home: NextPage = () => {
+    const { windowSize } = useDataContext()
+
     return (
         <Container>
             <Head>
@@ -85,20 +87,20 @@ const Home: NextPage = () => {
             </Section>
 
             <PortSection id="portfolio">
-                <MidSection>
-                    <Tags tags={[{ content: '<h1>' }]} />
-                    <h1>Meu Portfólio</h1>
-                    <Tags tags={[{ content: '</h1>' }]} />
+                {/* <MidSection> */}
+                <Tags tags={[{ content: '<h1>' }]} />
+                <h1>Meu Portfólio</h1>
+                <Tags tags={[{ content: '</h1>' }]} />
 
-                    <Tags tags={[{ content: '<p>' }]} />
-                    <p>
-                        Melhores projetos feitos recentemente. Fiz a maioria dos
-                        design (com o Figma e Adobe XD) e também do
-                        desenvolvimento front end.
-                    </p>
-                    <Tags tags={[{ content: '</p>' }]} />
-                </MidSection>
-                <MidSection></MidSection>
+                <Tags tags={[{ content: '<p>' }]} />
+                <p>
+                    Melhores projetos feitos recentemente. Fiz a maioria dos
+                    design (com o Figma e Adobe XD) e também do desenvolvimento
+                    front end.
+                </p>
+                <Tags tags={[{ content: '</p>' }]} />
+                {/* </MidSection> */}
+                {/* <MidSection></MidSection> */}
             </PortSection>
 
             <Tags tags={[{ content: '<section>', hierarchy: 'third' }]} />
@@ -113,7 +115,7 @@ const Home: NextPage = () => {
                         image: pro.image,
                         year: pro.year
                     }}
-                    inverted={pro.inverted}
+                    inverted={windowSize > 500 ? pro.inverted : false}
                 />
             ))}
 

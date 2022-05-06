@@ -5,13 +5,17 @@ export const Container = styled.section`
 
     display: flex;
     position: relative;
+
+    @media (max-width: 500px) {
+        padding: 2rem;
+    }
 `
 
 export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
     width: 50%;
 
     & > p {
-        padding: 0 1rem;
+        padding-left: 1rem;
 
         + p {
             margin-top: 1rem;
@@ -35,4 +39,9 @@ export const ButtonGroup = styled.div`
     & > button + button {
         margin-left: 1rem;
     } */
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+        /* grid-gap: 1rem; */
+    }
 `

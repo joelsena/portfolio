@@ -73,7 +73,7 @@ export const OpenButton = styled.button<{ isSidebarOpen: boolean }>`
     align-items: center;
 
     position: fixed;
-    left: -5rem;
+    left: -8rem;
     top: 2rem;
 
     width: 4rem;
