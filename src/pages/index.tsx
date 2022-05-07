@@ -2,13 +2,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import Head from 'next/head'
 
-import {
-    Container,
-    PortSection,
-    ArrowIndicator,
-    Copy,
-    MidSection
-} from '../styles/home'
+import { Container, PortSection, ArrowIndicator, Copy } from '../styles/home'
 import { ProjectSection } from '../components/ProjectSection'
 import { ContactForm } from '../components/ContactForm'
 import { ThumbsUp } from '../components/ThumbsUpModel'
@@ -22,8 +16,6 @@ import { useDataContext } from '../context/'
 import ArrowDown from '../assets/icons/arrow-down.svg'
 import JJImage from '../assets/logos/JJ.svg'
 import Hero from '../assets/hero.png'
-
-const HERO_WORDS = new Array('')
 
 const Home: NextPage = () => {
     const { windowSize } = useDataContext()
@@ -47,6 +39,7 @@ const Home: NextPage = () => {
             />
 
             <Section
+                hero={true}
                 section={{
                     titles: [
                         'Olá,',
@@ -89,7 +82,6 @@ const Home: NextPage = () => {
             </Section>
 
             <PortSection id="portfolio">
-                {/* <MidSection> */}
                 <Tags tags={[{ content: '<h1>' }]} />
                 <h1>Meu Portfólio</h1>
                 <Tags tags={[{ content: '</h1>' }]} />
@@ -101,13 +93,11 @@ const Home: NextPage = () => {
                     front end.
                 </p>
                 <Tags tags={[{ content: '</p>' }]} />
-                {/* </MidSection> */}
-                {/* <MidSection></MidSection> */}
             </PortSection>
 
             <Tags tags={[{ content: '<section>', hierarchy: 'third' }]} />
 
-            {projects.map(pro => (
+            {projects.map((pro, i) => (
                 <ProjectSection
                     key={pro.title}
                     data={{
@@ -150,7 +140,7 @@ const Home: NextPage = () => {
             <Section
                 id="skills"
                 section={{
-                    titles: ['Habilidades & Experiência'],
+                    titles: ['Habilidades', '&', 'Experiência'],
                     texts: [
                         `Desde que adentrei o mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais.`,
                         `Infezlimente não tive nenhuma experiência direta com o mercado de trabalho, me colocando numa situação complicada para conseguir um emprego.`,

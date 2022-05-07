@@ -1,4 +1,11 @@
-import { ReactNode } from 'react'
+import {
+    ClassAttributes,
+    Component,
+    HTMLAttributes,
+    LegacyRef,
+    ReactNode,
+    Ref
+} from 'react'
 import Image, { StaticImageData } from 'next/image'
 
 import { Container, MidSection } from './styles'
@@ -23,6 +30,7 @@ interface PageProps {
     children?: ReactNode
     data: previewData
     inverted?: boolean
+    ref?: Ref<HTMLDivElement>
 }
 
 export function ProjectSection({

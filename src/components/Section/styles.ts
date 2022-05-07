@@ -11,7 +11,7 @@ export const Container = styled.section`
     }
 `
 
-export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
+export const MidSection = styled.div`
     width: 50%;
 
     & > p {
@@ -21,21 +21,30 @@ export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
             margin-top: 1rem;
         }
     }
-
-    & > h1 {
-        color: ${props =>
-            props.titleColor === 'white' ? `white` : `var(--wine_500)`};
-    }
 `
 
 export const TitlesContainer = styled.div`
     display: flex;
 `
 
-export const H1 = styled.h1<{ delay: number }>`
+type TitleType = {
+    hero?: boolean
+    delay: number
+    titleColor?: 'wine' | 'white'
+}
+
+export const H1 = styled.h1<TitleType>`
     position: relative;
-    animation: 1s init ${props => props.delay}s;
-    animation-fill-mode: both;
+
+    ${props =>
+        props.hero &&
+        css`
+            animation: 0.3s init ${props.delay}s;
+            animation-fill-mode: both;
+        `}
+
+    color: ${props =>
+        props.titleColor === 'white' ? `white` : `var(--wine_500)`};
 
     @keyframes init {
         from {
@@ -46,6 +55,10 @@ export const H1 = styled.h1<{ delay: number }>`
             bottom: 0;
             opacity: 1;
         }
+    }
+
+    @media (max-width: 500px) {
+        word-wrap: break-word;
     }
 `
 

@@ -33,6 +33,7 @@ interface PageProps extends HTMLAttributes<HTMLElement> {
         cHref?: string
         styleType?: 'filled' | 'empty'
     }[]
+    hero?: boolean
 }
 
 export function Section({
@@ -41,6 +42,7 @@ export function Section({
     titleColor = 'wine',
     buttons = [],
     additionalContent: AddContent,
+    hero = false,
     ...rest
 }: PageProps) {
     const { titles, texts } = section
@@ -60,33 +62,60 @@ export function Section({
                     marginTop: '3rem',
                     width: showMidSection ? '50%' : '100%'
                 }}
-                titleColor={titleColor}
             >
                 <Tags tags={[{ content: '<h1>' }]} />
                 {titles.map((title, i) => {
-                    if (title['content']) {
-                        const words = []
-                        for (let i = 0; i < (title as string).length; i++) {
-                            // if(title[i] === ' ') words.push()
-                            words.push(title[i])
+                    // Objeto
+                    if (title['pre']) {
+                        const pre = []
+                        const pos = []
+                        for (let c = 0; c < title['pre'].length; c++) {
+                            pre.push(title['pre'][c])
+                        }
+                        for (let c = 0; c < title['pos'].length; c++) {
+                            pos.push(title['pos'][c])
                         }
                         return (
-                            <h1 key={i}>
-                                {title['pre']}
+                            <TitlesContainer key={i}>
+                                {pre.map((word, wi) => (
+                                    <H1
+                                        titleColor={titleColor}
+                                        key={wi * 4}
+                                        delay={wi / 10}
+                                        hero={hero}
+                                    >
+                                        {word !== ' ' ? word : '\xa0'}
+                                    </H1>
+                                ))}
                                 {title['content']}
-                                {title['pos']}
-                            </h1>
+                                {pos.map((word, wi) => (
+                                    <H1
+                                        titleColor={titleColor}
+                                        key={wi * 3}
+                                        delay={wi / 10}
+                                        hero={hero}
+                                    >
+                                        {word !== ' ' ? word : '\xa0'}
+                                    </H1>
+                                ))}
+                            </TitlesContainer>
                         )
                     }
+
+                    // Somente string
                     const words = []
                     for (let i = 0; i < (title as string).length; i++) {
-                        // if(title[i] === ' ') words.push()
                         words.push(title[i])
                     }
                     return (
                         <TitlesContainer key={i}>
                             {words.map((word, wi) => (
-                                <H1 key={i * 2} delay={wi / 8}>
+                                <H1
+                                    titleColor={titleColor}
+                                    key={wi * 2}
+                                    delay={wi / 12}
+                                    hero={hero}
+                                >
                                     {word !== ' ' ? word : '\xa0'}
                                 </H1>
                             ))}

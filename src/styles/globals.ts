@@ -78,7 +78,6 @@ export default createGlobalStyle`
 
     h1 {
         font-size: 5rem;
-        word-wrap: break-word;
     }
 
     a {
