@@ -28,6 +28,27 @@ export const MidSection = styled.div<{ titleColor?: 'wine' | 'white' }>`
     }
 `
 
+export const TitlesContainer = styled.div`
+    display: flex;
+`
+
+export const H1 = styled.h1<{ delay: number }>`
+    position: relative;
+    animation: 1s init ${props => props.delay}s;
+    animation-fill-mode: both;
+
+    @keyframes init {
+        from {
+            bottom: 24px;
+            opacity: 0;
+        }
+        to {
+            bottom: 0;
+            opacity: 1;
+        }
+    }
+`
+
 export const ButtonGroup = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 196px);

@@ -21,7 +21,9 @@ import { useDataContext } from '../context/'
 
 import ArrowDown from '../assets/icons/arrow-down.svg'
 import JJImage from '../assets/logos/JJ.svg'
-import Hero from '../assets/hero.svg'
+import Hero from '../assets/hero.png'
+
+const HERO_WORDS = new Array('')
 
 const Home: NextPage = () => {
     const { windowSize } = useDataContext()

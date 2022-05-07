@@ -1,6 +1,12 @@
 import { HTMLAttributes, ReactNode, useEffect, useState } from 'react'
 
-import { Container, MidSection, ButtonGroup } from './styles'
+import {
+    Container,
+    MidSection,
+    ButtonGroup,
+    TitlesContainer,
+    H1
+} from './styles'
 import { useDataContext } from '../../context'
 import { CTAButton } from '../CTAButton'
 import { Tags } from '../Tags'
@@ -38,11 +44,13 @@ export function Section({
     ...rest
 }: PageProps) {
     const { titles, texts } = section
+
     const [showMidSection, setShowMidSection] = useState(true)
     const { windowSize, breakpoints } = useDataContext()
 
     useEffect(() => {
-        setShowMidSection(windowSize <= breakpoints.lg ? false : true)
+        if (windowSize <= breakpoints.lg) setShowMidSection(false)
+        else setShowMidSection(true)
     }, [windowSize, breakpoints])
 
     return (
@@ -56,7 +64,12 @@ export function Section({
             >
                 <Tags tags={[{ content: '<h1>' }]} />
                 {titles.map((title, i) => {
-                    if (title['content'])
+                    if (title['content']) {
+                        const words = []
+                        for (let i = 0; i < (title as string).length; i++) {
+                            // if(title[i] === ' ') words.push()
+                            words.push(title[i])
+                        }
                         return (
                             <h1 key={i}>
                                 {title['pre']}
@@ -64,8 +77,23 @@ export function Section({
                                 {title['pos']}
                             </h1>
                         )
-                    return <h1 key={i}>{title as string}</h1>
+                    }
+                    const words = []
+                    for (let i = 0; i < (title as string).length; i++) {
+                        // if(title[i] === ' ') words.push()
+                        words.push(title[i])
+                    }
+                    return (
+                        <TitlesContainer key={i}>
+                            {words.map((word, wi) => (
+                                <H1 key={i * 2} delay={wi / 8}>
+                                    {word !== ' ' ? word : '\xa0'}
+                                </H1>
+                            ))}
+                        </TitlesContainer>
+                    )
                 })}
+
                 <Tags tags={[{ content: '</h1>' }]} />
 
                 <Tags tags={[{ content: '<p>' }]} />
