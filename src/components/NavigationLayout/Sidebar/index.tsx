@@ -80,17 +80,15 @@ export function Sidebar() {
                 </span>
             </OpenButton>
 
-            <Container
-                isVisible={showSidebar}
-                // style={{ left: !showSidebar ? '-8rem' : 0 }}
-            >
+            <Container isVisible={showSidebar}>
                 <Link href="/">
                     <a
                         style={{
-                            opacity: windowSize <= 920 ? 0 : 1
+                            opacity: windowSize <= 920 ? 0 : 1,
+                            position: 'relative'
                         }}
                     >
-                        <Image src={JSLogo} alt="JS" width="100%" />
+                        <Image src={JSLogo} alt="JS" layout="intrinsic" />
                     </a>
                 </Link>
 

@@ -46,7 +46,7 @@ const Home: NextPage = () => {
                         {
                             pre: 'Sou ',
                             content: (
-                                <Image src={JJImage} alt="JJ" width={52} />
+                                <Image src={JJImage} alt="JJ" width={48} />
                             ),
                             pos: 'oel,'
                         },
@@ -75,6 +75,9 @@ const Home: NextPage = () => {
                     alt="Minha Imagem"
                     priority
                     layout="responsive"
+                    style={{
+                        zIndex: -1
+                    }}
                 />
                 <ArrowIndicator>
                     <Image src={ArrowDown} alt="Abaixo" layout="responsive" />
@@ -143,7 +146,6 @@ const Home: NextPage = () => {
                     titles: ['Habilidades', '&', 'Experiência'],
                     texts: [
                         `Desde que adentrei o mundo da programação venho descobrindo e explorando muitas tecnologias que estão revolucionando o mundo e espero arrecadar muito mais experiência nessa área e em outras mais.`,
-                        `Infezlimente não tive nenhuma experiência direta com o mercado de trabalho, me colocando numa situação complicada para conseguir um emprego.`,
                         `Estou entrando em uma etapa nova na minha vida. Conciliando minha vida pessoal e a faculdade, tento entrar no mercado de trabalho.`
                     ]
                 }}
@@ -156,7 +158,7 @@ const Home: NextPage = () => {
                 section={{
                     titles: ['Me Contate'],
                     texts: [
-                        `No momento estou interessado em vagas júnior para desenvolvimento front end com as tecnologias reactjs, nextjs. Contudo, se tiver alguma dúvida, pedido ou quiser trocar uma idéia não hesite em usar o formulário.`
+                        `No momento estou interessado em vagas para desenvolvimento front end com as tecnologias reactjs, nextjs. Contudo, se tiver alguma dúvida, pedido ou quiser trocar uma idéia não hesite em usar o formulário.`
                     ]
                 }}
                 additionalContent={ContactForm}

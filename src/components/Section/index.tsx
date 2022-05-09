@@ -87,7 +87,14 @@ export function Section({
                                         {word !== ' ' ? word : '\xa0'}
                                     </H1>
                                 ))}
-                                {title['content']}
+                                <H1
+                                    delay={4 / 10}
+                                    hero={hero}
+                                    titleColor={titleColor}
+                                    key={4 * 3.14}
+                                >
+                                    {title['content']}
+                                </H1>
                                 {pos.map((word, wi) => (
                                     <H1
                                         titleColor={titleColor}

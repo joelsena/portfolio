@@ -25,6 +25,10 @@ export const MidSection = styled.div`
 
 export const TitlesContainer = styled.div`
     display: flex;
+
+    @media (max-width: 500px) {
+        word-wrap: break-word;
+    }
 `
 
 type TitleType = {
@@ -58,7 +62,10 @@ export const H1 = styled.h1<TitleType>`
     }
 
     @media (max-width: 500px) {
-        word-wrap: break-word;
+        font-size: 3rem;
+        > span {
+            width: 32px !important;
+        }
     }
 `
 
