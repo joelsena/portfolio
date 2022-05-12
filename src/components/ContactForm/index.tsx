@@ -1,4 +1,5 @@
 import { ChangeEventHandler, FormEvent, useState } from 'react'
+import axios from 'axios'
 
 import { Container, InputGroup } from './styles'
 import { CustomInput } from './Input'
@@ -38,19 +39,35 @@ export function ContactForm() {
         messageTitle: false,
         message: false
     })
+    const [isLoading, setIsLoading] = useState(false)
 
     const { name, email, messageTitle, message } = data
 
-    function onSubmitHandler(e: FormEvent) {
+    async function onSubmitHandler(e: FormEvent) {
         e.preventDefault()
 
         try {
             checkInputErrors(data)
             // no-errors
 
-            console.log(data, inputError)
+            setIsLoading(true)
+            const { email, message, messageTitle, name } = data
+            const res = await axios.post('/api/send-email', {
+                subject: messageTitle,
+                text: message,
+                userName: name,
+                userEmail: email
+            })
+
+            // console.log(res.data.message)
+            alert('Email enviado com sucesso!!!')
         } catch (err) {
-            // console.error(err)
+            console.error(err)
+            alert(
+                'Infelizmente não conseguimos enviar o email. Tente novamente mais tarde.'
+            )
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -127,7 +144,7 @@ export function ContactForm() {
                 type="submit"
                 style={{ marginTop: '1rem', float: 'right' }}
             >
-                Enviar Mensagem!
+                {isLoading ? 'Carregando...' : 'Enviar'}
             </CTAButton>
         </Container>
     )
