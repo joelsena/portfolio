@@ -6,11 +6,19 @@ const sendEmailHandler: NextApiHandler = async (req, res) => {
 
     return new Promise<void>((resolve, reject) => {
         if (method === 'POST') {
+            // const transporter = nodemailer.createTransport({
+            //     service: 'hotmail',
+            //     auth: {
+            //         user: process.env.HOTMAIL_USER,
+            //         pass: process.env.HOTMAIL_PASS
+            //     }
+            // })
             const transporter = nodemailer.createTransport({
-                service: 'hotmail',
+                host: 'smtp-relay.sendinblue.com',
+                port: 587,
                 auth: {
-                    user: process.env.HOTMAIL_USER,
-                    pass: process.env.HOTMAIL_PASS
+                    user: process.env.SENDINBLUE_USER,
+                    pass: process.env.SENDINBLUE_PASS
                 }
             })
 
@@ -19,8 +27,8 @@ const sendEmailHandler: NextApiHandler = async (req, res) => {
             const htmlContent = `<h3>${subject} - ${userEmail}</h3><p>${text}</p>`
 
             const mailOptions = {
-                from: `${userName} <${process.env.HOTMAIL_USER}>`,
-                to: 'joel.sena229@gmail.com',
+                from: `${userName} <${userEmail}>`,
+                to: process.env.SENDINBLUE_USER,
                 subject,
                 html: htmlContent
             }
