@@ -59,7 +59,6 @@ export function ContactForm() {
                 userEmail: email
             })
 
-            // console.log(res.data.message)
             alert('Email enviado com sucesso!!!')
         } catch (err) {
             console.error(err)

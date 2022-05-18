@@ -44,7 +44,7 @@ export function ProjectSection({
         title,
         year,
         description,
-        designedByWho = 'Desing feito por mim.',
+        designedByWho = 'Design feito por mim.',
         accessLink
     } = data
 
